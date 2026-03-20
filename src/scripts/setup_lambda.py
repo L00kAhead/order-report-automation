@@ -41,8 +41,8 @@ def create_lambda_policy():
     bucket_arn = f"arn:aws:s3:::{config['bucket_name']}"
     replacements = {
         '${S3_BUCKET_ARN}': bucket_arn,
-        '${S3_LANDING_PREFIX}': config['landing_prefix'].lstrip('/'),
-        '${S3_REPORTING_PREFIX}': config['report_prefix'].lstrip('/'),
+        '${S3_LANDING_PREFIX}': config['landing_prefix'],
+        '${S3_REPORTING_PREFIX}': config['report_prefix'],
     }
 
     policy_text = json.dumps(policy)
@@ -133,7 +133,7 @@ def configure_s3_event_notification(
                     'FilterRules': [
                         {
                             'Name': 'prefix',
-                            'Value': landing_prefix.lstrip('/'),
+                            'Value': landing_prefix,
                         },
                         {
                             'Name': 'suffix',
@@ -165,7 +165,8 @@ def create_lambda(
         lambda_function_role_arn: str,
         memory:int,
         timeout:int,
-        ephemeral_size: int
+        ephemeral_size: int,
+        retries:int = 5
 ):
     """Create the Lambda function with the specified configuration."""
 
@@ -204,11 +205,10 @@ def create_lambda(
             and 'cannot be assumed by Lambda' in error_message
         )
 
-        retries = 5
         if role_not_ready:
             if retries > 0:
                 time.sleep(10)  # Wait before retrying
-                print('Role not yet assumable by Lambda; retrying...')
+                print(f'Role not yet assumable by Lambda. {retries} attempt(s) remaining. Retrying...')
                 return create_lambda(
                     lambda_func_name,
                     lambda_function_role_arn,
@@ -233,7 +233,6 @@ def create_s3_event_notification(
     """Configure S3 event notification to trigger Lambda on new CSV files in the landing prefix."""
 
     bucket_name = bucket_name
-    landing_prefix = landing_prefix + '/' if not landing_prefix.endswith('/') else landing_prefix
 
     if not create_lambda_invoke_permission(lambda_func_name, bucket_name):
         return False
@@ -300,8 +299,8 @@ def lambda_init():
 
 
     config.update({
-        'lambda_exec_role_arn', lambda_exec_role_arn,
-        'lambda_func_arn', get_lambda_function_arn(lambda_function_name)
+        'lambda_exec_role_arn': lambda_exec_role_arn,
+        'lambda_func_arn': get_lambda_function_arn(lambda_function_name)
     })
     print('Configured lambda function successfully.')
     return True

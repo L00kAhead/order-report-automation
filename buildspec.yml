@@ -1,0 +1,36 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Starting build..."
+      - python --version
+      - aws --version
+
+  build:
+    commands:
+      - set -eo pipefail
+      - echo "Building Lambda deployment package..."
+      - cd src && zip ../lambda_deployment.zip lambda_function.py && cd ..
+      - echo "Lambda deployment package created successfully."
+
+  post_build:
+    commands:
+      - set -eo pipefail
+      - echo "Deploying Lambda function..."
+      - |
+        aws lambda update-function-code \
+          --function-name $LAMBDA_FUNCTION_NAME \
+          --zip-file fileb://lambda_deployment.zip \
+          --region $AWS_REGION
+      - |
+        aws lambda wait function-updated \
+          --function-name $LAMBDA_FUNCTION_NAME \
+          --region $AWS_REGION
+      - echo "Deployment completed successfully."
+
+artifacts:
+  files:
+    - lambda_deployment.zip
+    - buildspec.yml
+  name: order-report-automation-deployment

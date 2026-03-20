@@ -1,0 +1,11 @@
+[project]
+name = "order-report-automation"
+version = "0.1.0"
+description = "Automates daily order reporting."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "boto3>=1.42.70",
+    "boto3-stubs~=1.42.70",
+    "python-dotenv>=1.2.2",
+]

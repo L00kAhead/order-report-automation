@@ -8,8 +8,8 @@ s3_client = boto3.client('s3', region_name=config.get('region'))
 def create_bucket(bucket_name:str, region: str):
     try:
         s3_client.head_bucket(Bucket=bucket_name)
-        print("Bucket already exists. Skipping creation.")
-        raise
+        raise Exception("Bucket already exists. Skipping creation.")
+
     except ClientError as e:
         error_code = e.response['Error']['Code']
         if error_code in ['404', 'NoSuchBucket']:
@@ -35,13 +35,13 @@ def create_bucket_prefixes(bucket_name:str, landing_prefix: str, report_prefix: 
     try:
         s3_client.put_object(
             Bucket=bucket_name,
-            Key=landing_prefix,
+            Key=landing_prefix+'/',
             Body=b''
         )
         print("Landing prefix(folder) created successfully.")
         s3_client.put_object(
             Bucket=bucket_name,
-            Key=report_prefix,
+            Key=report_prefix+'/',
             Body=b''
         )
         print("Report prefix(folder) created successfully.")
@@ -61,11 +61,11 @@ def s3_init():
         print("Missing required environment variables")
         raise ValueError("Missing required environment variables")
 
-    if create_bucket(bucket_name=bucket, region=aws_region):
-        create_bucket_prefixes(
-            bucket_name=bucket,
-            landing_prefix=landing_prefix_key,
-            report_prefix=report_prefix_key
-        )
+    create_bucket(bucket_name=bucket, region=aws_region)
+    create_bucket_prefixes(
+        bucket_name=bucket,
+        landing_prefix=landing_prefix_key,
+        report_prefix=report_prefix_key
+    )
     print("Configured S3 bucket creation successfully.")
     return True

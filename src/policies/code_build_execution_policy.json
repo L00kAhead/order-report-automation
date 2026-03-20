@@ -17,7 +17,8 @@
       "Action": [
         "lambda:UpdateFunctionCode",
         "lambda:UpdateFunctionConfiguration",
-        "lambda:GetFunction"
+        "lambda:GetFunction",
+        "lambda:GetFunctionConfiguration"
       ],
       "Resource": "${LAMBDA_FUNCTION_ARN}"
     },
@@ -31,6 +32,15 @@
           "iam:PassedToService": "lambda.amazonaws.com"
         }
       }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
     }
   ]
 }

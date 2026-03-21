@@ -1,0 +1,51 @@
+order_id,customer_name,product,category,quantity,price,city,order_date
+ORD0051,Aarav Sharma,Notebook,Stationery,5,99.0,Chennai,2026-03-02
+ORD0052,Aditya Singh,Pen Pack,Stationery,2,199.0,Chennai,2026-03-02
+ORD0053,Aarav Sharma,Headphones,Electronics,5,1299.0,Delhi,2026-03-02
+ORD0054,Krishna Iyer,Notebook,Stationery,5,99.0,Mumbai,2026-03-02
+ORD0055,Priya Mishra,Notebook,Stationery,1,99.0,Bangalore,2026-03-02
+ORD0056,Ananya Gupta,Smart Watch,Electronics,3,2999.0,Hyderabad,2026-03-02
+ORD0057,Ananya Gupta,Pen Pack,Stationery,5,199.0,Bangalore,2026-03-02
+ORD0058,Priya Mishra,Headphones,Electronics,2,1299.0,Delhi,2026-03-02
+ORD0059,Sai Reddy,Pen Pack,Stationery,4,199.0,Chennai,2026-03-02
+ORD0060,Krishna Iyer,Jeans,Clothing,2,999.0,Pune,2026-03-02
+ORD0061,Sai Reddy,T-Shirt,Clothing,5,399.0,Mumbai,2026-03-02
+ORD0062,Rohan Das,Backpack,Bags,1,1499.0,Bangalore,2026-03-02
+ORD0063,Krishna Iyer,Smart Watch,Electronics,1,2999.0,Pune,2026-03-02
+ORD0064,Aditya Singh,Backpack,Bags,2,1499.0,Mumbai,2026-03-02
+ORD0065,Rahul Verma,Keyboard,Electronics,3,799.0,Pune,2026-03-02
+ORD0066,Krishna Iyer,Jeans,Clothing,2,999.0,Hyderabad,2026-03-02
+ORD0067,Isha Kapoor,T-Shirt,Clothing,4,399.0,Mumbai,2026-03-02
+ORD0068,Isha Kapoor,T-Shirt,Clothing,2,399.0,Chennai,2026-03-02
+ORD0069,Krishna Iyer,Jeans,Clothing,2,999.0,Mumbai,2026-03-02
+ORD0070,Arjun Kumar,Notebook,Stationery,1,99.0,Bangalore,2026-03-02
+ORD0071,Pooja Joshi,Coffee Mug,Home,1,299.0,Pune,2026-03-02
+ORD0072,Sai Reddy,Pen Pack,Stationery,1,199.0,Mumbai,2026-03-02
+ORD0073,Karan Mehta,Notebook,Stationery,5,99.0,Delhi,2026-03-02
+ORD0074,Aarav Sharma,Smart Watch,Electronics,5,2999.0,Chennai,2026-03-02
+ORD0075,Priya Mishra,Headphones,Electronics,3,1299.0,Chennai,2026-03-02
+ORD0076,Priya Mishra,Backpack,Bags,5,1499.0,Mumbai,2026-03-02
+ORD0077,Karan Mehta,Notebook,Stationery,1,99.0,Chennai,2026-03-02
+ORD0078,Pooja Joshi,Wireless Mouse,Electronics,5,599.0,Hyderabad,2026-03-02
+ORD0079,Sneha Nair,Headphones,Electronics,3,1299.0,Hyderabad,2026-03-02
+ORD0080,Pooja Joshi,Smart Watch,Electronics,5,2999.0,Bangalore,2026-03-02
+ORD0081,Aditya Singh,T-Shirt,Clothing,5,399.0,Delhi,2026-03-02
+ORD0082,Karan Mehta,Wireless Mouse,Electronics,5,599.0,Chennai,2026-03-02
+ORD0083,Vivaan Patel,Pen Pack,Stationery,4,199.0,Mumbai,2026-03-02
+ORD0084,Vivaan Patel,Backpack,Bags,3,1499.0,Mumbai,2026-03-02
+ORD0085,Sai Reddy,Backpack,Bags,4,1499.0,Delhi,2026-03-02
+ORD0086,Neha Choudhary,Notebook,Stationery,1,99.0,Hyderabad,2026-03-02
+ORD0087,Pooja Joshi,Smart Watch,Electronics,3,2999.0,Chennai,2026-03-02
+ORD0088,Aditya Singh,T-Shirt,Clothing,3,399.0,Delhi,2026-03-02
+ORD0089,Sai Reddy,Backpack,Bags,2,1499.0,Delhi,2026-03-02
+ORD0090,Arjun Kumar,Headphones,Electronics,2,1299.0,Delhi,2026-03-02
+ORD0091,Krishna Iyer,Headphones,Electronics,2,1299.0,Hyderabad,2026-03-02
+ORD0092,Priya Mishra,Smart Watch,Electronics,1,2999.0,Delhi,2026-03-02
+ORD0093,Karan Mehta,Notebook,Stationery,3,99.0,Hyderabad,2026-03-02
+ORD0094,Karan Mehta,Coffee Mug,Home,1,299.0,Pune,2026-03-02
+ORD0095,Aarav Sharma,Keyboard,Electronics,1,799.0,Hyderabad,2026-03-02
+ORD0096,Vivaan Patel,Wireless Mouse,Electronics,4,599.0,Hyderabad,2026-03-02
+ORD0097,Aditya Singh,Notebook,Stationery,2,99.0,Hyderabad,2026-03-02
+ORD0098,Aditya Singh,Notebook,Stationery,5,99.0,Hyderabad,2026-03-02
+ORD0099,Pooja Joshi,T-Shirt,Clothing,3,399.0,Chennai,2026-03-02
+ORD0100,Pooja Joshi,Wireless Mouse,Electronics,4,599.0,Bangalore,2026-03-02

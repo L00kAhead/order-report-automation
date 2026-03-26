@@ -19,6 +19,11 @@
         "logs:PutLogEvents"
       ],
       "Resource": "arn:aws:logs:*:*:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["sns:Publish"],
+      "Resource": "${SNS_TOPIC_ARN}"
     }
   ]
 }

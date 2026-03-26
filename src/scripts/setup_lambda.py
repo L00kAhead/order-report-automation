@@ -43,6 +43,7 @@ def create_lambda_policy():
         '${S3_BUCKET_ARN}': bucket_arn,
         '${S3_LANDING_PREFIX}': config['landing_prefix'],
         '${S3_REPORTING_PREFIX}': config['report_prefix'],
+        '${SNS_TOPIC_ARN}': config['sns_topic_arn'],
     }
 
     policy_text = json.dumps(policy)

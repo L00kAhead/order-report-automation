@@ -20,7 +20,6 @@ config : dict[str, str | None] = {
     'codebuild_repo_url': os.getenv('CODE_BUILD_REPO_URL'),
     'codebuild_environment': os.getenv('CODE_BUILD_ENVIRONMENT'),
     'codebuild_compute_type': os.getenv('CODE_BUILD_COMPUTE_TYPE'),
-    'codebuild_image': os.getenv('CODE_BUILD_IMAGE')
-
+    'codebuild_image': os.getenv('CODE_BUILD_IMAGE'),
+    'sns_topic_arn': os.getenv('SNS_TOPIC_ARN'),
 }
-

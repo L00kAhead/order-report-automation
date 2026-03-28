@@ -3,7 +3,7 @@
 A serverless pipeline that processes order CSV files uploaded to S3 and generates city-wise revenue summaries. 
 Uploading a file to the S3 landing prefix triggers a Lambda function that aggregates revenue by city and 
 writes a summary report back to S3. Code changes pushed to main are automatically built and deployed via 
-AWS CodeBuild.
+AWS CodeBuild. Lambda also publishes processing/report status to SNS.
 
 ## Prerequisites
 
@@ -51,7 +51,6 @@ LAMBDA_TIMEOUT=60
 LAMBDA_MEMORY=256
 LAMBDA_EPHEMERAL_SIZE=512
 
-
 CODE_BUILD_PROJECT_NAME=<your_codebuild_project_name>
 CODE_BUILD_SOURCE=GITHUB
 CODE_BUILD_REPO_URL=<repo_url>
@@ -59,8 +58,18 @@ CODE_BUILD_ENVIRONMENT=ARM_LAMBDA_CONTAINER
 CODE_BUILD_COMPUTE_TYPE=BUILD_LAMBDA_1GB
 CODE_BUILD_IMAGE=aws/codebuild/amazonlinux-aarch64-lambda-standard:python3.14
 CODE_BUILD_ROLE_NAME=<your_codebuild_role_name>
+
+SNS_TOPIC_ARN=<your_topic_arn>
 ```
 
+#### 3.1 Simple Notification Service Setup
+
+1. Go to AWS Console.
+2. Search for SNS and then create a `standard` topic.
+3. Create a subscription : Email
+   - Login into your email(Gmail/Proton) and confirm the subscription.  
+4. Copy the topic arn and paste it in env variable `SNS_TOPIC_ARN`.
+ 
 ### 4. Deploy Infrastructure
 
 Run the master setup script to create all AWS resources:
@@ -204,3 +213,9 @@ The project uses AWS CodeBuild for continuous deployment:
 
 ---
 
+## Troubleshooting
+
+If you get an error indicating `SNS_TOPIC_ARN` is not defined in Lambda, open the AWS Lambda console and add an environment variable named `SNS_TOPIC_ARN`.
+Set its value to your SNS topic ARN.
+
+---
